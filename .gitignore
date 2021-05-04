@@ -14,3 +14,12 @@
 .cxx
 local.properties
 
+/.idea/.gitignore
+/assignment_f80452a.zip
+/.idea/compiler.xml
+/.idea/gradle.xml
+/.idea/jarRepositories.xml
+/.idea/markdown-navigator.xml
+/.idea/markdown-navigator-enh.xml
+/.idea/misc.xml
+/.idea/vcs.xml
