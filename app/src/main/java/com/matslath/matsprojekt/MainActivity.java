@@ -37,13 +37,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Starta om sidan startar här
-        Button startaOmsidan = findViewById(R.id.startaAbout);
+        Button startaOMsidan = findViewById(R.id.startaAbout);
 
-        startaOmsidan.setOnClickListener(new View.OnClickListener() {
+        startaOMsidan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View niceViewOpener) {
                 Intent intent = new Intent(MainActivity.this, about.class);
-                intent.putExtra("name", "Ett värde som skickas med från MainActivity.java");
                 startActivity(intent);
             }
         });
@@ -55,7 +54,15 @@ public class MainActivity extends AppCompatActivity {
         myListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), "Blomman " + blommigheter.get(position) + " säljs av " + blommigheter.get(position).getCompany() + ". Blomman trivs bäst " + blommigheter.get(position).getLocation() + " och kostar "+ blommigheter.get(position).getCost() +":- och är ca " + blommigheter.get(position).getSize() + "cm stor.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, blomsterinfo.class);
+                intent.putExtra("name", blommigheter.get(position).getName());
+                intent.putExtra("company", blommigheter.get(position).getCompany());
+                intent.putExtra("location", blommigheter.get(position).getLocation());
+                intent.putExtra("cost", blommigheter.get(position).getCost());
+                intent.putExtra("size", blommigheter.get(position).getSize());
+                //intent.putExtra("name", "\"Blomman \" + blommigheter.get(position).getName() + \" säljs av \" + blommigheter.get(position).getCompany() + \". Blomman trivs bäst \" + blommigheter.get(position).getLocation() + \" och kostar \"+ blommigheter.get(position).getCost() +\":- och är ca \" + blommigheter.get(position).getSize() + \"cm stor.\";");
+                //Toast.makeText(getApplicationContext(), "Blomman " + blommigheter.get(position) + " säljs av " + blommigheter.get(position).getCompany() + ". Blomman trivs bäst " + blommigheter.get(position).getLocation() + " och kostar "+ blommigheter.get(position).getCost() +":- och är ca " + blommigheter.get(position).getSize() + "cm stor.", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
             }
         });
         new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=i19matla");
