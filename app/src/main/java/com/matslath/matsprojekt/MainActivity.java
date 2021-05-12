@@ -3,12 +3,14 @@ package com.matslath.matsprojekt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -34,6 +36,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Starta om sidan startar här
+        Button startaOmsidan = findViewById(R.id.startaAbout);
+
+        startaOmsidan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View niceViewOpener) {
+                Intent intent = new Intent(MainActivity.this, about.class);
+                intent.putExtra("name", "Ett värde som skickas med från MainActivity.java");
+                startActivity(intent);
+            }
+        });
+
+        //Adapter och hämtning av json data till listview börjar här
         adapter = new ArrayAdapter<Blomsterkvast>(this,R.layout.blommig_lista,R.id.textViewBlommListan, blommigheter);
         ListView myListview = findViewById(R.id.listigtViewId);
         myListview.setAdapter(adapter);
@@ -45,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         });
         new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=i19matla");
     }
+
+    //Internetkod börjar här
 
     @SuppressLint("StaticFieldLeak")
     private class JsonTask extends AsyncTask<String, String, String> {
@@ -85,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             }
             return null;
         }
-
+        //Användande och utskrift av data till appen samt loggen startar här
         @Override
         protected void onPostExecute(String json) {
             Log.d("TAG", json);
