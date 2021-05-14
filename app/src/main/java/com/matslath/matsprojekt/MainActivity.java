@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Starta om sidan startar här
+                                                                // ------------------- Starta om sidan startar här
         Button startaOMsidan = findViewById(R.id.startaAbout);
 
         startaOMsidan.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Adapter och hämtning av json data till listview börjar här
+                                                                // --------------------- Adapter och hämtning av json data till listview börjar här
         adapter = new ArrayAdapter<Blomsterkvast>(this,R.layout.blommig_lista,R.id.textViewBlommListan, blommigheter);
         ListView myListview = findViewById(R.id.listigtViewId);
         myListview.setAdapter(adapter);
@@ -55,20 +55,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, blomsterinfo.class);
+
                 intent.putExtra("name", blommigheter.get(position).getName());
                 intent.putExtra("company", blommigheter.get(position).getCompany());
                 intent.putExtra("location", blommigheter.get(position).getLocation());
                 intent.putExtra("cost", blommigheter.get(position).getCost());
                 intent.putExtra("size", blommigheter.get(position).getSize());
-                //intent.putExtra("name", "\"Blomman \" + blommigheter.get(position).getName() + \" säljs av \" + blommigheter.get(position).getCompany() + \". Blomman trivs bäst \" + blommigheter.get(position).getLocation() + \" och kostar \"+ blommigheter.get(position).getCost() +\":- och är ca \" + blommigheter.get(position).getSize() + \"cm stor.\";");
-                //Toast.makeText(getApplicationContext(), "Blomman " + blommigheter.get(position) + " säljs av " + blommigheter.get(position).getCompany() + ". Blomman trivs bäst " + blommigheter.get(position).getLocation() + " och kostar "+ blommigheter.get(position).getCost() +":- och är ca " + blommigheter.get(position).getSize() + "cm stor.", Toast.LENGTH_SHORT).show();
+
                 startActivity(intent);
             }
         });
         new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=i19matla");
     }
 
-    //Internetkod börjar här
+                                                                    // --------------- Internetkod börjar här
 
     @SuppressLint("StaticFieldLeak")
     private class JsonTask extends AsyncTask<String, String, String> {
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
             }
             return null;
         }
-        //Användande och utskrift av data till appen samt loggen startar här
+                                                                        // --------- Skörd och utskrift av jsondata till appens förstasida samt loggen startar här
         @Override
         protected void onPostExecute(String json) {
             Log.d("TAG", json);
