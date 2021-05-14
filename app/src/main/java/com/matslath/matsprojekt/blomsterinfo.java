@@ -14,6 +14,7 @@ public class blomsterinfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blomsterinfo);
 
+        TextView headingFlower = findViewById(R.id.headingFlower);
         TextView textView = findViewById(R.id.name);
 
 
@@ -25,6 +26,7 @@ public class blomsterinfo extends AppCompatActivity {
             int cost = extras.getInt("cost");
             int size = extras.getInt("size");
 
+            headingFlower.setText(name);
             textView.setText("Blomman " + name + " säljs av " + company + ". Blomman trivs bäst " + location + " och kostar " + cost + ":- och är ca " + size + "cm stor.");
         }
 
