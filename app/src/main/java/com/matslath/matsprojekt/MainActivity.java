@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -24,7 +23,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -54,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         myListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, blomsterinfo.class);
+                Intent intent = new Intent(MainActivity.this, BlomsterInfo.class);
 
                 intent.putExtra("name", blommigheter.get(position).getName());
                 intent.putExtra("company", blommigheter.get(position).getCompany());
