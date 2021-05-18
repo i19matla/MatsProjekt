@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-                                                                // ------------------- Starta om sidan startar här
+        // ------------------- Starta About sidan startar här.
         Button startaOMsidan = findViewById(R.id.startaAbout);
 
         startaOMsidan.setOnClickListener(new View.OnClickListener() {
