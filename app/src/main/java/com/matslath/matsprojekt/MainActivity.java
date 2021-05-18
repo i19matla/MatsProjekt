@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         startaOMsidan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View niceViewOpener) {
-                Intent intent = new Intent(MainActivity.this, about.class);
+                Intent intent = new Intent(MainActivity.this, About.class);
                 startActivity(intent);
             }
         });

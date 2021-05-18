@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MatsProjekt">
         <activity android:name=".BlomsterInfo"></activity>
-        <activity android:name=".about" />
+        <activity android:name=".About" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
