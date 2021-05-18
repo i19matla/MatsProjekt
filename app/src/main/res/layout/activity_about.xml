@@ -36,7 +36,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Appen vänder sig till personer med intresse för blommor, målgruppens ålder är blandad men en majoritet är mellan 25år upp till 80år.\n\nProdukten med störst dragningskraft bland besökarna av appen är blomman Grisfladder som är framställd i ett atomärt växthus av Nukleärodling AB. Grisfladder är självlysande och har ett härligt grymtande ljud."
+            android:text="Appen vänder sig till personer med intresse för blommor, målgruppens ålder är blandad men en majoritet är mellan 25år upp till 80år.\n\nProdukten med störst dragningskraft bland besökarna av appen är blomman Grisfladder som är framställd i ett atomärt växthus av Nukleärodling AB. Grisfladder är självlysande och har ett härligt grymtande ljud.\n\nEtt stort tack till Therese Löfström i Webug 20 familjen för den vackra visuella illustreringen av blomman Grisfladder!"
             android:textSize="14sp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
